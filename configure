@@ -93,7 +93,8 @@ execConfigure() {
 	cp -r "$SRCDIR/$PACKAGE" "$BUILDDIR/copy/$PACKAGE"
 	if [ -d "$BUILDDIR/copy/$PACKAGE" ]; then
 		pushd "$BUILDDIR/copy/$PACKAGE" > /dev/null
-		if [ -x "./configure" ]; then
+		if [ -e "./configure" ]; then
+			chmod u+x configure
 			./configure $OPT_HOST $OPTIONS
 			if [ $? -ne 0 ]; then
 				popd -n > /dev/null

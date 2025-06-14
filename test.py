@@ -150,9 +150,9 @@ if __name__ == "__main__":
 	generate_skip=False
 	try:
 		opts, args = getopt.getopt(sys.argv[1:], "h", ["help", "target=", "generate=", "skip", "type="])
-	except getopt.GetoptError, err:
+	except getopt.GetoptError as err:
 		# print help information and exit:
-		print str(err) # will print something like "option -a not recognized"
+		print(str(err)) # will print something like "option -a not recognized"
 		usage()
 		sys.exit(2)
 	for o, a in opts:
@@ -170,9 +170,9 @@ if __name__ == "__main__":
 	if None==target_type and "nt"==os.name:
 		target_type=""
 	if None==target_type:
-		print "please specify target type , e.g. --type=static or --type=shared"
+		print("please specify target type , e.g. --type=static or --type=shared")
 	if None==target_mode:
-		print "please specify target mode, e.g. --target=debug"
+		print("please specify target mode, e.g. --target=debug")
 		sys.exit(2)
 	else:
 		test.init(target_mode, target_type)
@@ -293,7 +293,7 @@ if __name__ == "__main__":
 					skip=False
 #				print f+" "+str(ignore)
 				if not(ignore) and not(skip) and (".docx"==ext or ".xlsx"==ext or ".pptx"==ext or ".xps"==ext):
-					print "opc_generate_test("+basedir+", "+src+")"
+					print("opc_generate_test("+basedir+", "+src+")")
 					opc_generate_test(basedir, src)
 					skip_f.write(f+"\n")
 					skip_f.flush()

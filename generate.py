@@ -701,7 +701,7 @@ def generateLibraryInclude(conf, ctx, lib, filename, build_dir, src_dir):
 			ln_dst=os.path.join(src_dir, dep)
 			if os.path.exists(ln_src):
 				os.remove(ln_src)
-			print "symlink("+ln_dst+", "+ln_src+")"+str(os.path.exists(ln_src))
+			print("symlink("+ln_dst+", "+ln_src+")"+str(os.path.exists(ln_src)))
 			os.symlink(ln_dst, ln_src)
 			ret.append(ln_src)
 		else:
@@ -1055,9 +1055,9 @@ if __name__ == "__main__":
 			"with-zlib-cppflags=", "with-zlib-ldflags=", "with-zlib=",
 			"with-libxml-cppflags=", "with-libxml-ldflags=", "with-libxml=",
 			"type="])
-	except getopt.GetoptError, err:
+	except getopt.GetoptError as err:
 		# print help information and exit:
-		print str(err) # will print something like "option -a not recognized"
+		print(str(err)) # will print something like "option -a not recognized"
 		usage()
 		sys.exit(2)
 	ctx={ "base": os.path.abspath(os.curdir), "root": os.path.abspath(os.curdir), "platform": "?-?-?", "platforms": [], "externals": {} }

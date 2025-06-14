@@ -10,10 +10,10 @@ import shutil
 import platform as python_platform
 
 def msg(msg):
-	print msg+"...",
+	print(msg+"...", end=' ')
 
 def result(msg):
-	print msg;
+	print(msg);
 
 def failure(msg):
 	type, value = sys.exc_info()[:2]

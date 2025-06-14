@@ -1,0 +1,9 @@
+Makefile
+build/
+__pycache__/
+debian/.debhelper/
+debian/libopc-dev.debhelper.log
+debian/libopc-dev/
+debian/libopc.debhelper.log
+debian/tmp/
+usr.zip

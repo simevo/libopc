@@ -8,6 +8,7 @@ import uuid
 import getopt
 import zipfile
 import shutil
+from functools import cmp_to_key
 
 EXT_MAPPING = {".c": "c", ".cc": "cpp", ".cpp": "cpp", ".h": "h", ".s": "s"}
 
@@ -645,8 +646,7 @@ def generatePlatformList(conf, ctx):
     for platform in conf["platforms"]:
         if platformSubseteqTest(ctx["platform"], platform):
             add.append(platform)
-    add.sort(platformCompare)
-    return add
+    return sorted(add, key=cmp_to_key(platformCompare))
 
 
 def generateConfiguration(ctx, includes, platform):
